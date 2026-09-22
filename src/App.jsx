@@ -2,36 +2,74 @@ import { useEffect, useRef, useState } from 'react'
 import templates from './templates.json'
 
 const WIDTHS = { desktop: 640, phone: 375 }
+const THEMES = ['light', 'dark']
 const GROUPS = [...new Set(templates.map((t) => t.group))]
+const params = new URLSearchParams(window.location.search)
 
 function initialSlug() {
-  const t = new URLSearchParams(window.location.search).get('t')
+  const t = params.get('t')
   return templates.some((x) => x.slug === t) ? t : templates[0].slug
+}
+
+// ?theme= wins, then the viewer's system setting.
+function initialTheme() {
+  const t = params.get('theme')
+  if (THEMES.includes(t)) return t
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+}
+
+// The emails switch to dark inside @media (prefers-color-scheme: dark). Rewrite those rules' media text so they
+// always match (dark) or never match (light), whatever the viewer's system setting is.
+function applyTheme(doc, theme) {
+  if (!doc) return
+  doc.documentElement.style.colorScheme = theme
+  for (const sheet of doc.styleSheets) {
+    let rules
+    try {
+      rules = sheet.cssRules
+    } catch {
+      continue // cross-origin sheet (the Google Fonts link): unreadable, and it has no color-scheme rules
+    }
+    for (const rule of rules) {
+      if (!(rule instanceof doc.defaultView.CSSMediaRule)) continue
+      rule.__scheme ??= /prefers-color-scheme:\s*dark/.test(rule.media.mediaText)
+      if (rule.__scheme) rule.media.mediaText = theme === 'dark' ? 'all' : 'not all'
+    }
+  }
 }
 
 export default function App() {
   const [slug, setSlug] = useState(initialSlug)
   const [device, setDevice] = useState('desktop')
+  const [theme, setTheme] = useState(initialTheme)
   const [height, setHeight] = useState(800)
   const frame = useRef(null)
   const observer = useRef(null)
   const template = templates.find((t) => t.slug === slug)
   const src = `templates/${template.file}`
 
-  // Keep ?t= in the URL so a link opens the same email.
+  // Keep ?t= and ?theme= in the URL so a link opens the same email in the same mode.
   useEffect(() => {
     const url = new URL(window.location.href)
     url.searchParams.set('t', slug)
+    url.searchParams.set('theme', theme)
     window.history.replaceState(null, '', url)
-  }, [slug])
+  }, [slug, theme])
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme
+    applyTheme(frame.current?.contentDocument, theme)
+  }, [theme])
 
   useEffect(() => () => observer.current?.disconnect(), [])
 
   // Size the iframe to its content so the page scrolls, not the frame. Images load late, so keep watching.
   function fit() {
     // Measure <body>, not <html>: <html> is never shorter than the frame, so it would only ever grow.
-    const body = frame.current?.contentDocument?.body
+    const doc = frame.current?.contentDocument
+    const body = doc?.body
     if (!body) return
+    applyTheme(doc, theme)
     observer.current?.disconnect()
     const measure = () => setHeight(body.scrollHeight)
     observer.current = new ResizeObserver(measure)
@@ -42,18 +80,12 @@ export default function App() {
   return (
     <>
       <header className="bar">
-        <picture>
-          <source
-            media="(prefers-color-scheme: dark)"
-            srcSet="pinpaws-logo-white.png"
-          />
-          <img
-            className="logo"
-            src="https://www.pinpaws.com/wp-content/uploads/2019/04/Pinpaws-logo.png"
-            alt="Pin Paws"
-            height="36"
-          />
-        </picture>
+        <img
+          className="logo"
+          src={theme === 'dark' ? 'pinpaws-logo-white.png' : 'https://www.pinpaws.com/wp-content/uploads/2019/04/Pinpaws-logo.png'}
+          alt="Pin Paws"
+          height="36"
+        />
         <span className="title">Email previews</span>
 
         <label className="picker">
@@ -73,6 +105,14 @@ export default function App() {
           {Object.keys(WIDTHS).map((d) => (
             <button key={d} type="button" aria-pressed={device === d} onClick={() => setDevice(d)}>
               {d === 'desktop' ? 'Desktop' : 'Phone'}
+            </button>
+          ))}
+        </div>
+
+        <div className="toggle" role="group" aria-label="Color mode">
+          {THEMES.map((t) => (
+            <button key={t} type="button" aria-pressed={theme === t} onClick={() => setTheme(t)}>
+              {t === 'dark' ? 'Dark' : 'Light'}
             </button>
           ))}
         </div>

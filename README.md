@@ -1,10 +1,12 @@
 # Pin Paws email previews
 
 A small Vite + React site for sharing the Pin Paws transactional email templates. Pick a template from the dropdown
-in the top bar to see it rendered, at desktop (640px) or phone (375px) width. Above each email, a strip shows its
+in the top bar to see it rendered, at desktop (640px) or phone (375px) width, in light or dark mode. Dark mode shows
+what the email's own dark-mode styles look like in mail apps that use them. Above each email, a strip shows its
 subject line and preheader the way an inbox would.
 
-Link to one email with `?t=<name>`, for example `?t=07-payment-failed`.
+Link to one email with `?t=<name>`, and pick the mode with `&theme=light` or `&theme=dark`, for example
+`?t=07-payment-failed&theme=dark`. Without `theme`, the viewer's system setting decides.
 
 ## Update the emails
 
