@@ -1,0 +1,90 @@
+[
+  {
+    "slug": "packwise-basic-welcome",
+    "file": "packwise-basic-welcome.html",
+    "label": "Basic welcome",
+    "subject": "Welcome to PackWISE",
+    "preheader": "Your membership is active. Here are the four pet benefits it includes.",
+    "group": "PackWISE welcomes"
+  },
+  {
+    "slug": "packwise-preferred-welcome",
+    "file": "packwise-preferred-welcome.html",
+    "label": "Preferred welcome",
+    "subject": "Your PackWISE Membership Is Active",
+    "preheader": "Here’s everything your PackWISE Preferred membership includes.",
+    "group": "PackWISE welcomes"
+  },
+  {
+    "slug": "01-welcome-to-packwise",
+    "file": "01-welcome-to-packwise.html",
+    "label": "Welcome to PackWISE",
+    "subject": "Welcome to PackWISE",
+    "preheader": "Your PackWISE membership is active. Here’s everything it includes.",
+    "group": "Lifecycle emails"
+  },
+  {
+    "slug": "02-payment-confirmation",
+    "file": "02-payment-confirmation.html",
+    "label": "Payment Confirmed: You’re All Set",
+    "subject": "Payment Confirmed: You’re All Set",
+    "preheader": "Here’s your PackWISE payment confirmation and what happens next.",
+    "group": "Lifecycle emails"
+  },
+  {
+    "slug": "03-activate-pin-paws-tag",
+    "file": "03-activate-pin-paws-tag.html",
+    "label": "Finish Setting Up {{pet_name}}’s Pin Paws Tag",
+    "subject": "Finish Setting Up {{pet_name}}’s Pin Paws Tag",
+    "preheader": "Two minutes now could bring {{pet_name}} home faster.",
+    "group": "Lifecycle emails"
+  },
+  {
+    "slug": "04-benefit-spotlight-televet",
+    "file": "04-benefit-spotlight-televet.html",
+    "label": "Meet Your Perk: 24/7 Pet Telehealth",
+    "subject": "Meet Your Perk: 24/7 Pet Telehealth",
+    "preheader": "Round-the-clock vet access is already part of your plan.",
+    "group": "Lifecycle emails"
+  },
+  {
+    "slug": "05-how-to-file-a-claim",
+    "file": "05-how-to-file-a-claim.html",
+    "label": "How to File Your Ruffeow Reimbursement Claim",
+    "subject": "How to File Your Ruffeow Reimbursement Claim",
+    "preheader": "Three simple steps to get reimbursed for {{pet_name}}’s recent care.",
+    "group": "Lifecycle emails"
+  },
+  {
+    "slug": "06-renewal-reminder",
+    "file": "06-renewal-reminder.html",
+    "label": "Your PackWISE Membership Renews on {{renewal_date}}",
+    "subject": "Your PackWISE Membership Renews on {{renewal_date}}",
+    "preheader": "Here’s what’s renewing and when. No action needed.",
+    "group": "Lifecycle emails"
+  },
+  {
+    "slug": "07-payment-failed",
+    "file": "07-payment-failed.html",
+    "label": "We Couldn’t Process Your PackWISE Payment",
+    "subject": "We Couldn’t Process Your PackWISE Payment",
+    "preheader": "Update your payment method to keep {{pet_name}}’s benefits active.",
+    "group": "Lifecycle emails"
+  },
+  {
+    "slug": "08-cancellation-confirmation",
+    "file": "08-cancellation-confirmation.html",
+    "label": "Your PackWISE Membership Has Been Cancelled",
+    "subject": "Your PackWISE Membership Has Been Cancelled",
+    "preheader": "Confirming your cancellation and what happens next.",
+    "group": "Lifecycle emails"
+  },
+  {
+    "slug": "pinpaws-template",
+    "file": "pinpaws-template.html",
+    "label": "Component sheet",
+    "subject": "Pin Paws Email Template: Every Component",
+    "preheader": "One email showing every block in the Pin Paws transactional template.",
+    "group": "Reference"
+  }
+]

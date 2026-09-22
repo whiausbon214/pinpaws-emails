@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="x-apple-disable-message-reformatting">
+<meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark">
+<title>Payment Confirmed: You’re All Set</title>
+<!--[if mso]>
+<noscript><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript>
+<style>td,th,div,p,a,h1,h2,h3{font-family:Arial,Helvetica,sans-serif !important;}</style>
+<![endif]-->
+<!--[if !mso]><!-->
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<!--<![endif]-->
+<!--
+  ============================================================================
+  PIN PAWS · TRANSACTIONAL / WELCOME BASE TEMPLATE
+  Design system: Pin Paws (https://claude.ai/artifact/FW9Q11R2c5DjYM8STbsAbL)
+
+  How to use
+  1. Copy this file. Fill the subject, preheader_text, headline and reason_text placeholders.
+  2. Paste blocks from components.html into the CARD CONTENT slot below.
+  3. Rename the placeholders to your sender's merge-tag syntax (see README.md).
+
+  Palette (light → dark)
+    page      #f2f8f9 secondary-color-30   → #181b1d
+    hero      #e43c40 primary-color + hero-bg.jpg pattern → unchanged (white 36px/400 = 4.18:1 on solid, 3.22:1 worst case on pattern; large-text AA)
+    card      #fcfcff white-color          → #22272a
+    heading   #4c5166 awb-color7           → #f5f5f5
+    body      #4a4a4a body-text            → #d6d6d6
+    muted     #545454 black-color-300      → #a8b0b3
+    link      #047483 secondary-color-600  → #6fcfdb
+    button    #048090 secondary-color      → unchanged (white 16px bold = 4.67:1)
+    panel     #e6f2f4 secondary-color-50   → #10363b
+    box       #f3f3f3 grey-color-500       → #2e3437
+    rule      #e6e6e6 black-color-50       → #394044
+    footer    #048090 secondary-color + footer paw PNG overlay, all text #ffffff (4.67:1; same in both modes)
+  ============================================================================
+-->
+<style>
+  /* Resets */
+  html, body { margin:0 !important; padding:0 !important; width:100% !important; }
+  * { -ms-text-size-adjust:100%; -webkit-text-size-adjust:100%; }
+  table, td { mso-table-lspace:0pt; mso-table-rspace:0pt; border-collapse:collapse; }
+  img { -ms-interpolation-mode:bicubic; border:0; outline:none; text-decoration:none; }
+  p, a, li, td, h1, h2, h3 { mso-line-height-rule:exactly; }
+  a[x-apple-data-detectors], #MessageViewBody a, u + #body a { color:inherit !important; text-decoration:none !important; font-size:inherit !important; font-family:inherit !important; font-weight:inherit !important; line-height:inherit !important; }
+  .em-preheader { display:none !important; }
+
+  /* Mobile (progressive enhancement: layouts already reflow without this) */
+  @media only screen and (max-width:620px) {
+    .em-side { padding-left:12px !important; padding-right:12px !important; }
+    .em-pad { padding-left:22px !important; padding-right:22px !important; }
+    .em-h1 { font-size:30px !important; line-height:36px !important; }
+    .em-col { max-width:100% !important; width:100% !important; }
+    .em-col-img { padding-right:0 !important; padding-bottom:14px !important; }
+    .em-tile { padding-left:0 !important; padding-right:0 !important; }
+    .em-btn-wrap, .em-btn-td { width:100% !important; }
+    .em-btn { display:block !important; text-align:center !important; }
+    .em-box-pad { padding-left:20px !important; padding-right:20px !important; }
+    /* Footer: 'cover' crops both paws off a narrow screen. The PNG is transparent, so draw it twice at 700px wide:
+       one copy pinned bottom-left shows the left paw, one pinned top-right shows the right paw. */
+    .em-footer { background-image:url('https://mcusercontent.com/83159a81ac881c4987476a7f9/images/43cba940-0700-8fd2-8531-e00411a4686b.png'), url('https://mcusercontent.com/83159a81ac881c4987476a7f9/images/43cba940-0700-8fd2-8531-e00411a4686b.png') !important; background-size:700px auto, 700px auto !important; background-position:left bottom, right top !important; background-repeat:no-repeat, no-repeat !important; }
+  }
+
+  /* Dark mode: Apple Mail, iOS Mail, Outlook for Mac, Outlook iOS/Android */
+  :root { color-scheme:light dark; supported-color-schemes:light dark; }
+  @media (prefers-color-scheme:dark) {
+    body, .em-bg { background-color:#181b1d !important; }
+    .em-card { background-color:#22272a !important; }
+    .em-panel { background-color:#10363b !important; }
+    .em-box { background-color:#2e3437 !important; }
+    .em-head { color:#f5f5f5 !important; }
+    .em-text { color:#d6d6d6 !important; }
+    .em-muted { color:#a8b0b3 !important; }
+    .em-link, .em-kicker { color:#6fcfdb !important; }
+    .em-rule { border-color:#394044 !important; }
+    .em-rule-bg { background-color:#394044 !important; }
+    .em-label { background-color:#2e3437 !important; color:#a8b0b3 !important; }
+    .em-logo { background-color:#fcfcff !important; padding:6px 10px !important; }
+  }
+  /* Dark mode: Outlook.com (ogsc = text colour, ogsb = background) */
+  [data-ogsb] body, [data-ogsb] .em-bg { background-color:#181b1d !important; }
+  [data-ogsb] .em-card { background-color:#22272a !important; }
+  [data-ogsb] .em-panel { background-color:#10363b !important; }
+  [data-ogsb] .em-box { background-color:#2e3437 !important; }
+  [data-ogsc] .em-head { color:#f5f5f5 !important; }
+  [data-ogsc] .em-text { color:#d6d6d6 !important; }
+  [data-ogsc] .em-muted { color:#a8b0b3 !important; }
+  [data-ogsc] .em-link, [data-ogsc] .em-kicker { color:#6fcfdb !important; }
+  [data-ogsb] .em-rule { border-color:#394044 !important; }
+  [data-ogsb] .em-rule-bg { background-color:#394044 !important; }
+  [data-ogsb] .em-label { background-color:#2e3437 !important; }
+  [data-ogsc] .em-label { color:#a8b0b3 !important; }
+  [data-ogsb] .em-logo { background-color:#fcfcff !important; padding:6px 10px !important; }
+</style>
+</head>
+<body id="body" class="em-bg" style="margin:0; padding:0; width:100%; background-color:#f2f8f9;">
+
+<!-- PREHEADER: 40–90 characters that continue the subject line -->
+<div class="em-preheader" style="display:none; font-size:1px; line-height:1px; max-height:0; max-width:0; opacity:0; overflow:hidden; mso-hide:all;">Here’s your PackWISE payment confirmation and what happens next.&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;</div>
+
+<table role="presentation" class="em-bg" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%; background-color:#f2f8f9;">
+
+  <!-- ===================== HERO + CARD TOP =====================
+       Background: paw-and-bone pattern (hero-bg.jpg, 1600x651, 48KB) over the solid-red fallback.
+       Clients that can't show background images (and anyone with images off) get plain #e43c40.
+       Outlook for Windows gets the pattern through VML (tiled at the image's native size).
+       Hosted on Mailchimp Content Studio. To change it, update all 3 places below (background attribute, CSS and VML). -->
+  <tr><td class="em-hero" align="center" valign="top" bgcolor="#e43c40" background="https://mcusercontent.com/83159a81ac881c4987476a7f9/images/0235d6eb-9869-802a-e3a8-c8f528ed7581.jpg" style="background-color:#e43c40; background-image:url('https://mcusercontent.com/83159a81ac881c4987476a7f9/images/0235d6eb-9869-802a-e3a8-c8f528ed7581.jpg'); background-position:center top; background-size:cover; background-repeat:no-repeat;">
+    <!--[if gte mso 9]>
+    <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="mso-width-percent:1000;">
+      <v:fill type="tile" src="https://mcusercontent.com/83159a81ac881c4987476a7f9/images/0235d6eb-9869-802a-e3a8-c8f528ed7581.jpg" color="#e43c40" />
+      <v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
+    <![endif]-->
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;">
+      <tr><td class="em-side" align="center" valign="top" style="padding-top:36px; padding-right:16px; padding-bottom:0; padding-left:16px;">
+        <!--[if mso]><table role="presentation" width="600" align="center" cellpadding="0" cellspacing="0" border="0"><tr><td><![endif]-->
+        <table role="presentation" width="100%" align="center" cellpadding="0" cellspacing="0" border="0" style="width:100%; max-width:600px;">
+          <tr><td class="em-pad" align="left" style="padding-top:0; padding-right:40px; padding-bottom:28px; padding-left:40px;">
+            <a href="https://www.pinpaws.com/" target="_blank" style="display:inline-block;"><img src="https://mcusercontent.com/83159a81ac881c4987476a7f9/images/eaae42b3-ff16-5163-d11c-78b804ffd72b.png" width="150" height="75" alt="Pin Paws" style="display:block; width:150px; max-width:150px; height:auto; border:0;"></a>
+          </td></tr>
+          <tr><td class="em-pad" align="left" style="padding-top:0; padding-right:40px; padding-bottom:36px; padding-left:40px;">
+            <h1 class="em-h1" style="margin:0; font-family:'Lato', Arial, Helvetica, sans-serif; font-size:36px; line-height:42px; font-weight:400; letter-spacing:-0.2px; color:#ffffff; text-align:left;">You’re All Set</h1>
+          </td></tr>
+          <!-- Card top: its rounded corners sit on the patterned red field -->
+          <tr><td class="em-card" height="28" style="height:28px; font-size:1px; line-height:1px; background-color:#fcfcff; border-radius:12px 12px 0 0;">&nbsp;</td></tr>
+        </table>
+        <!--[if mso]></td></tr></table><![endif]-->
+      </td></tr>
+    </table>
+    <!--[if gte mso 9]>
+      </v:textbox>
+    </v:rect>
+    <![endif]-->
+  </td></tr>
+
+  <!-- ===================== CARD BODY ===================== -->
+  <tr><td class="em-side em-bg" align="center" valign="top" style="background-color:#f2f8f9; padding-top:0; padding-right:16px; padding-bottom:0; padding-left:16px;">
+    <!--[if mso]><table role="presentation" width="600" align="center" cellpadding="0" cellspacing="0" border="0"><tr><td><![endif]-->
+    <table role="presentation" width="100%" align="center" cellpadding="0" cellspacing="0" border="0" style="width:100%; max-width:600px;">
+      <tr><td class="em-card em-pad" style="background-color:#fcfcff; border-radius:0 0 12px 12px; padding-top:4px; padding-right:40px; padding-bottom:36px; padding-left:40px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+
+          <!-- ============ CARD CONTENT: paste blocks from components.html here ============ -->
+          <!-- BLOCK: lead -->
+          <tr><td class="em-text" style="padding-top:12px; padding-right:0px; padding-bottom:4px; padding-left:0px; font-family:'Lato', Arial, Helvetica, sans-serif; font-size:18px; line-height:28px; color:#4a4a4a; text-align:left;">{{first_name}}, your payment went through. Keep this email for your records.</td></tr>
+          <!-- /BLOCK: lead -->
+
+          <!-- BLOCK: section heading -->
+          <tr><td style="padding-top:28px; padding-right:0px; padding-bottom:8px; padding-left:0px;">
+            <h2 class="em-head" style="margin:0; font-family:'Lato', Arial, Helvetica, sans-serif; font-size:24px; line-height:30px; font-weight:400; color:#4c5166; text-align:left;">Payment Confirmation</h2>
+          </td></tr>
+          <!-- /BLOCK: section heading -->
+
+          <!-- BLOCK: details table -->
+          <tr><td style="padding-top:8px; padding-right:0px; padding-bottom:8px; padding-left:0px;">
+            <table role="presentation" class="em-panel" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#e6f2f4; border-radius:8px;">
+              <tr><td class="em-box-pad" style="padding-top:16px; padding-right:24px; padding-bottom:16px; padding-left:24px;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="font-family:'Lato', Arial, Helvetica, sans-serif; font-size:15px; line-height:22px;">
+                  <tr><td class="em-muted" style="padding-top:6px; padding-right:12px; padding-bottom:6px; padding-left:0px; color:#545454;">Plan</td><td class="em-head" align="right" style="padding-top:6px; padding-right:0px; padding-bottom:6px; padding-left:0px; font-weight:700; color:#4c5166;">{{plan_name}}</td></tr>
+                  <tr><td class="em-muted" style="padding-top:6px; padding-right:12px; padding-bottom:6px; padding-left:0px; color:#545454;">Amount charged</td><td class="em-head" align="right" style="padding-top:6px; padding-right:0px; padding-bottom:6px; padding-left:0px; font-weight:700; color:#4c5166;">{{amount_charged}}</td></tr>
+                  <tr><td class="em-muted" style="padding-top:6px; padding-right:12px; padding-bottom:6px; padding-left:0px; color:#545454;">Payment date</td><td class="em-head" align="right" style="padding-top:6px; padding-right:0px; padding-bottom:6px; padding-left:0px; font-weight:700; color:#4c5166;">{{payment_date}}</td></tr>
+                  <tr><td class="em-muted" style="padding-top:6px; padding-right:12px; padding-bottom:6px; padding-left:0px; color:#545454;">Next billing date</td><td class="em-head" align="right" style="padding-top:6px; padding-right:0px; padding-bottom:6px; padding-left:0px; font-weight:700; color:#4c5166;">{{next_billing_date}}</td></tr>
+                  <tr><td class="em-muted" style="padding-top:6px; padding-right:12px; padding-bottom:6px; padding-left:0px; color:#545454;">Payment method</td><td class="em-head" align="right" style="padding-top:6px; padding-right:0px; padding-bottom:6px; padding-left:0px; font-weight:700; color:#4c5166;">{{payment_method_last4}}</td></tr>
+                </table>
+              </td></tr>
+            </table>
+          </td></tr>
+          <!-- /BLOCK: details table -->
+
+          <!-- BLOCK: section heading -->
+          <tr><td style="padding-top:28px; padding-right:0px; padding-bottom:8px; padding-left:0px;">
+            <h2 class="em-head" style="margin:0; font-family:'Lato', Arial, Helvetica, sans-serif; font-size:24px; line-height:30px; font-weight:400; color:#4c5166; text-align:left;">What Happens Next</h2>
+          </td></tr>
+          <!-- /BLOCK: section heading -->
+
+          <!-- BLOCK: paragraph -->
+          <tr><td class="em-text" style="padding-top:4px; padding-right:0px; padding-bottom:0px; padding-left:0px; font-family:'Lato', Arial, Helvetica, sans-serif; font-size:16px; line-height:26px; color:#4a4a4a; text-align:left;">Your PackWISE perks activate within 48–72 hours of your stated active date. A separate welcome email will walk you through everything in your plan. In the meantime, you can log in any time to view your account.</td></tr>
+          <!-- /BLOCK: paragraph -->
+
+          <!-- BLOCK: button -->
+          <tr><td align="left" style="padding-top:24px; padding-right:0px; padding-bottom:8px; padding-left:0px;">
+                <!--[if mso]>
+                <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://pinpaws.com/account/login" style="height:48px; v-text-anchor:middle; width:214px;" arcsize="12%" stroke="f" fillcolor="#048090">
+                  <w:anchorlock/><center style="color:#ffffff; font-family:Arial, Helvetica, sans-serif; font-size:16px; font-weight:bold;">View My Account</center>
+                </v:roundrect>
+                <![endif]-->
+                <!--[if !mso]><!-->
+                <table role="presentation" class="em-btn-wrap" cellpadding="0" cellspacing="0" border="0"><tr>
+                  <td class="em-btn-td" align="center" style="background-color:#048090; border-radius:6px;">
+                    <a class="em-btn" href="https://pinpaws.com/account/login" target="_blank" style="display:inline-block; padding-top:14px; padding-right:32px; padding-bottom:14px; padding-left:32px; font-family:'Lato', Arial, Helvetica, sans-serif; font-size:16px; line-height:20px; font-weight:700; letter-spacing:0.3px; color:#ffffff; text-decoration:none; border-radius:6px;">View My Account</a>
+                  </td>
+                </tr></table>
+                <!--<![endif]-->
+          </td></tr>
+          <!-- /BLOCK: button -->
+
+          <!-- BLOCK: help box -->
+          <tr><td style="padding-top:16px; padding-right:0px; padding-bottom:0px; padding-left:0px;">
+            <table role="presentation" class="em-box" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f3f3f3; border-radius:8px;">
+              <tr><td class="em-box-pad" style="padding-top:24px; padding-right:28px; padding-bottom:24px; padding-left:28px; font-family:'Lato', Arial, Helvetica, sans-serif;">
+                <h3 class="em-head" style="margin:0 0 6px; font-family:'Lato', Arial, Helvetica, sans-serif; font-size:20px; line-height:26px; font-weight:700; color:#4c5166;">Questions About This Charge?</h3>
+                <p class="em-text" style="margin:0 0 14px; font-size:16px; line-height:26px; color:#4a4a4a;">If anything above looks off, reach out and we’ll sort it out right away.</p>
+                <p class="em-text" style="margin:0; font-size:16px; line-height:28px; color:#4a4a4a;">
+                  <strong class="em-head" style="color:#4c5166;">Call:</strong> <a class="em-link" href="tel:+18447467297" style="color:#047483; font-weight:700; text-decoration:underline;">(844)&nbsp;746-7297</a><br>
+                  <span class="em-muted" style="font-size:14px; color:#545454;">Mon–Thu 9am–6pm &amp; Fri 9am–4pm CT</span><br>
+                  <strong class="em-head" style="color:#4c5166;">Email:</strong> <a class="em-link" href="mailto:membership@pinpaws.com?subject=Member%20Question" style="color:#047483; font-weight:700; text-decoration:underline;">membership@pinpaws.com</a>
+                </p>
+              </td></tr>
+            </table>
+          </td></tr>
+          <!-- /BLOCK: help box -->
+
+          <!-- ============ /CARD CONTENT ============ -->
+
+        </table>
+      </td></tr>
+    </table>
+    <!--[if mso]></td></tr></table><![endif]-->
+  </td></tr>
+
+  <!-- ===================== SPACER ===================== -->
+  <tr><td class="em-bg" height="36" style="height:36px; font-size:1px; line-height:1px; background-color:#f2f8f9;">&nbsp;</td></tr>
+
+  <!-- ===================== FOOTER (teal + paw overlay) =====================
+       Teal #048090 (secondary-color) with https://mcusercontent.com/83159a81ac881c4987476a7f9/images/43cba940-0700-8fd2-8531-e00411a4686b.png (transparent PNG, faint paws) on top.
+       Fallback: plain teal. All footer text is white: 4.67:1 on teal, 5.06:1 over a paw. -->
+  <tr><td class="em-footer" align="center" valign="top" bgcolor="#048090" background="https://mcusercontent.com/83159a81ac881c4987476a7f9/images/43cba940-0700-8fd2-8531-e00411a4686b.png" style="background-color:#048090; background-image:url('https://mcusercontent.com/83159a81ac881c4987476a7f9/images/43cba940-0700-8fd2-8531-e00411a4686b.png'); background-position:center center; background-size:cover; background-repeat:no-repeat;">
+    <!--[if gte mso 9]>
+    <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="mso-width-percent:1000;">
+      <v:fill type="frame" src="https://mcusercontent.com/83159a81ac881c4987476a7f9/images/43cba940-0700-8fd2-8531-e00411a4686b.png" color="#048090" />
+      <v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
+    <![endif]-->
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;">
+      <tr><td align="center" valign="top" style="padding-top:40px; padding-right:16px; padding-bottom:44px; padding-left:16px;">
+        <!--[if mso]><table role="presentation" width="600" align="center" cellpadding="0" cellspacing="0" border="0"><tr><td><![endif]-->
+        <table role="presentation" width="100%" align="center" cellpadding="0" cellspacing="0" border="0" style="width:100%; max-width:600px;">
+          <tr><td class="em-pad" align="center" style="padding-top:0; padding-right:40px; padding-bottom:20px; padding-left:40px; font-family:'Lato', Arial, Helvetica, sans-serif; font-size:13px; line-height:20px; color:#ffffff;">
+            Please don’t reply to this email. For questions about your membership, email<br>
+            <a href="mailto:membership@pinpaws.com" target="_blank" style="color:#ffffff; font-weight:700; text-decoration:underline;">membership@pinpaws.com</a> or call <a href="tel:+18447467297" style="color:#ffffff; font-weight:700; text-decoration:underline;">(844)&nbsp;746-7297</a>.
+          </td></tr>
+          <!-- Social icons: Mailchimp’s 48px all-white outline icons shown at 32px (sharp on retina); alt text keeps them usable with images off -->
+          <tr><td align="center" style="padding-top:0; padding-right:0; padding-bottom:22px; padding-left:0;">
+            <table role="presentation" align="center" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="padding-top:0; padding-right:6px; padding-bottom:0; padding-left:6px;"><a href="https://www.facebook.com/pinpawsllc" target="_blank" style="display:block; font-family:'Lato', Arial, Helvetica, sans-serif; font-size:12px; line-height:16px; color:#ffffff; text-decoration:none;"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/outline-light-facebook-48.png" width="32" height="32" alt="Pin Paws on Facebook" style="display:block; width:32px; height:32px; border:0;"></a></td>
+                <td style="padding-top:0; padding-right:6px; padding-bottom:0; padding-left:6px;"><a href="https://www.instagram.com/pinpaws/" target="_blank" style="display:block; font-family:'Lato', Arial, Helvetica, sans-serif; font-size:12px; line-height:16px; color:#ffffff; text-decoration:none;"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/outline-light-instagram-48.png" width="32" height="32" alt="Pin Paws on Instagram" style="display:block; width:32px; height:32px; border:0;"></a></td>
+                <td style="padding-top:0; padding-right:6px; padding-bottom:0; padding-left:6px;"><a href="https://www.pinpaws.com/" target="_blank" style="display:block; font-family:'Lato', Arial, Helvetica, sans-serif; font-size:12px; line-height:16px; color:#ffffff; text-decoration:none;"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/outline-light-link-48.png" width="32" height="32" alt="Visit pinpaws.com" style="display:block; width:32px; height:32px; border:0;"></a></td>
+              </tr>
+            </table>
+          </td></tr>
+          <tr><td class="em-pad" style="padding-top:0; padding-right:40px; padding-bottom:22px; padding-left:40px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td height="1" style="height:1px; font-size:1px; line-height:1px; background-color:#3699a6;">&nbsp;</td></tr></table>
+          </td></tr>
+          <tr><td class="em-pad" align="center" style="padding-top:0; padding-right:40px; padding-bottom:0; padding-left:40px; font-family:'Lato', Arial, Helvetica, sans-serif; font-size:12px; line-height:19px; color:#ffffff;">
+            You’re receiving this email because you have a PackWISE membership. This is a service message about your account.<br><br>
+            &copy; {{current_year}} Pin Paws LLC. All rights reserved.<br>
+            16775 Addison Rd., Suite 605 &middot; Addison, TX 75001<br><br>
+            <a href="https://www.pinpaws.com/terms-and-conditions/" target="_blank" style="color:#ffffff; text-decoration:underline;">Terms and Conditions</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="https://www.pinpaws.com/privacy-policy/" target="_blank" style="color:#ffffff; text-decoration:underline;">Privacy Policy</a>
+    <!-- OPTIONAL: marketing or list-based sends must add this (CAN-SPAM / Gmail & Yahoo bulk-sender rules)
+        <br><br><a href="{{preferences_url}}" target="_blank" style="color:#ffffff; text-decoration:underline;">Update your preferences</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="{{unsubscribe_url}}" target="_blank" style="color:#ffffff; text-decoration:underline;">Unsubscribe</a>
+        -->
+          </td></tr>
+        </table>
+        <!--[if mso]></td></tr></table><![endif]-->
+      </td></tr>
+    </table>
+    <!--[if gte mso 9]>
+      </v:textbox>
+    </v:rect>
+    <![endif]-->
+  </td></tr>
+
+</table>
+</body>
+</html>
