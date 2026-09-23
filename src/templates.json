@@ -16,14 +16,6 @@
     "group": "PackWISE welcomes"
   },
   {
-    "slug": "01-welcome-to-packwise",
-    "file": "01-welcome-to-packwise.html",
-    "label": "Welcome to PackWISE",
-    "subject": "Welcome to PackWISE",
-    "preheader": "Your PackWISE membership is active. Here’s everything it includes.",
-    "group": "Lifecycle emails"
-  },
-  {
     "slug": "02-payment-confirmation",
     "file": "02-payment-confirmation.html",
     "label": "Payment Confirmed: You’re All Set",
@@ -78,13 +70,5 @@
     "subject": "Your PackWISE Membership Has Been Cancelled",
     "preheader": "Confirming your cancellation and what happens next.",
     "group": "Lifecycle emails"
-  },
-  {
-    "slug": "pinpaws-template",
-    "file": "pinpaws-template.html",
-    "label": "Component sheet",
-    "subject": "Pin Paws Email Template: Every Component",
-    "preheader": "One email showing every block in the Pin Paws transactional template.",
-    "group": "Reference"
   }
 ]
